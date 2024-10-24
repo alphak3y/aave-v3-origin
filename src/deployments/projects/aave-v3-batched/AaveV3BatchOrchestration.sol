@@ -17,6 +17,8 @@ import '../../interfaces/IMarketReportTypes.sol';
 import {IMarketReportStorage} from '../../interfaces/IMarketReportStorage.sol';
 import {IPoolReport} from '../../interfaces/IPoolReport.sol';
 
+import "forge-std/console.sol";
+
 /**
  * @title AaveV3BatchOrchestration
  * @author BGD
@@ -36,6 +38,8 @@ library AaveV3BatchOrchestration {
       config,
       deployedContracts
     );
+
+    console.log('setup deployment complete');
 
     AaveV3GettersBatchOne.GettersReportBatchOne memory gettersReport1 = _deployGettersBatch1(
       initialReport.poolAddressesProvider,

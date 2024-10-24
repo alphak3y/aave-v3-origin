@@ -11,6 +11,8 @@ import {PoolAddressesProviderRegistry} from '../../../contracts/protocol/configu
 import {IEmissionManager} from '../../../contracts/rewards/interfaces/IEmissionManager.sol';
 import {IRewardsController} from '../../../contracts/rewards/interfaces/IRewardsController.sol';
 
+import "forge-std/console.sol";
+
 contract AaveV3SetupProcedure {
   struct AddressProviderInput {
     InitialReport initialReport;
@@ -92,6 +94,7 @@ contract AaveV3SetupProcedure {
 
     if (providerRegistry == address(0)) {
       poolAddressesProviderRegistry = address(new PoolAddressesProviderRegistry(address(this)));
+      console.log('address registry deployed');
       PoolAddressesProviderRegistry(poolAddressesProviderRegistry).registerAddressesProvider(
         poolAddressesProvider,
         providerId

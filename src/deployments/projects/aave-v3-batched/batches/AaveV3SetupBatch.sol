@@ -5,6 +5,8 @@ import {Ownable} from '../../../../contracts/dependencies/openzeppelin/contracts
 import {AaveV3SetupProcedure} from '../../../contracts/procedures/AaveV3SetupProcedure.sol';
 import '../../../contracts/MarketReportStorage.sol';
 
+import "forge-std/console.sol";
+
 contract AaveV3SetupBatch is MarketReportStorage, AaveV3SetupProcedure, Ownable {
   InitialReport internal _initialReport;
   SetupReport internal _setupReport;
@@ -23,6 +25,8 @@ contract AaveV3SetupBatch is MarketReportStorage, AaveV3SetupProcedure, Ownable 
       config.marketId,
       config.providerId
     );
+
+    console.log('end of constructor');
   }
 
   function setupAaveV3Market(
