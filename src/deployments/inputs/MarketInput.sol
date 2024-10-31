@@ -7,7 +7,6 @@ abstract contract MarketInput {
     address
   )
     internal
-    pure
     virtual
     returns (
       Roles memory roles,
