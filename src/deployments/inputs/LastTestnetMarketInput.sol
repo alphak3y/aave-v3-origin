@@ -32,6 +32,8 @@ contract LastTestnetMarketInput is MarketInput {
 
     config.wrappedNativeToken = address(new WETH9());
 
+    config.salt = keccak256(abi.encodePacked('cubish'));
+
     return (roles, config, flags, deployedContracts);
   }
 }
