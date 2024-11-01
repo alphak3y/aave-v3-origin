@@ -12,6 +12,7 @@
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+import 'forge-std/console.sol';
 
 pragma solidity ^0.8.10;
 
@@ -51,6 +52,7 @@ contract WETH9 {
   function approve(address guy, uint256 wad) public returns (bool) {
     allowance[msg.sender][guy] = wad;
     emit Approval(msg.sender, guy, wad);
+    console.log('end of approve');
     return true;
   }
 

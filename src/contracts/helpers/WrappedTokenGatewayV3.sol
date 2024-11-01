@@ -12,6 +12,8 @@ import {UserConfiguration} from '../protocol/libraries/configuration/UserConfigu
 import {DataTypes} from '../protocol/libraries/types/DataTypes.sol';
 import {IWrappedTokenGatewayV3} from './interfaces/IWrappedTokenGatewayV3.sol';
 
+import 'forge-std/console.sol';
+
 /**
  * @dev This contract is an upgrade of the WrappedTokenGatewayV3 contract, with immutable pool address.
  * This contract keeps the same interface of the deprecated WrappedTokenGatewayV3 contract.
@@ -34,6 +36,7 @@ contract WrappedTokenGatewayV3 is IWrappedTokenGatewayV3, Ownable {
     POOL = pool;
     transferOwnership(owner);
     IWETH(weth).approve(address(pool), type(uint256).max);
+    console.log('end of gateway v3');
   }
 
   /**
