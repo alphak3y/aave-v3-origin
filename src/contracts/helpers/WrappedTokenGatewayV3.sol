@@ -36,7 +36,7 @@ contract WrappedTokenGatewayV3 is IWrappedTokenGatewayV3, Ownable {
     POOL = pool;
     transferOwnership(owner);
     console.log('before approve call', weth);
-    IWETH(weth).approve(address(pool), type(uint256).max);
+    IWETH(weth).approve(address(pool), 1);
     console.log('end of gateway v3');
   }
 
