@@ -32,6 +32,8 @@ contract AaveV3GettersProcedureTwo {
       report.l2Encoder = address(new L2Encoder(IPool(poolProxy)));
     }
 
+    console.log('after l2 encoder');
+
     return report;
   }
 }
