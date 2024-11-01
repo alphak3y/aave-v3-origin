@@ -155,6 +155,7 @@ library AaveV3BatchOrchestration {
     address wrappedNativeToken,
     bool l2Flag
   ) internal returns (AaveV3GettersBatchTwo.GettersReportBatchTwo memory) {
+    console.log('getters batch two');
     AaveV3GettersBatchTwo gettersBatch2;
     if (wrappedNativeToken != address(0) || l2Flag) {
       gettersBatch2 = new AaveV3GettersBatchTwo(poolProxy, poolAdmin, wrappedNativeToken, l2Flag);

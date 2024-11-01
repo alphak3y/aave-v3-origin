@@ -5,6 +5,8 @@ import {IPool} from '../../../contracts/interfaces/IPool.sol';
 import {WrappedTokenGatewayV3} from '../../../contracts/helpers/WrappedTokenGatewayV3.sol';
 import {L2Encoder} from '../../../contracts/helpers/L2Encoder.sol';
 
+import 'forge-std/console.sol';
+
 contract AaveV3GettersProcedureTwo {
   struct GettersReportBatchTwo {
     address wrappedTokenGateway;
@@ -20,6 +22,7 @@ contract AaveV3GettersProcedureTwo {
     GettersReportBatchTwo memory report;
 
     if (wrappedNativeToken != address(0)) {
+      console.log('before wrapped token gateway deploy');
       report.wrappedTokenGateway = address(
         new WrappedTokenGatewayV3(wrappedNativeToken, poolAdmin, IPool(poolProxy))
       );

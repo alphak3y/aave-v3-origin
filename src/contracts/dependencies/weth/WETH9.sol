@@ -50,6 +50,7 @@ contract WETH9 {
   }
 
   function approve(address guy, uint256 wad) public returns (bool) {
+    console.log('start of approve');
     allowance[msg.sender][guy] = wad;
     emit Approval(msg.sender, guy, wad);
     console.log('end of approve');
