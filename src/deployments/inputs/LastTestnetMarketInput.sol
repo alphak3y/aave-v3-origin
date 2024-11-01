@@ -40,4 +40,19 @@ contract LastTestnetMarketInput is MarketInput {
 
     return (roles, config, flags, deployedContracts);
   }
+
+  function _getPostDeploymentConfig(
+    address deployer
+  ) 
+    internal
+    returns (
+      PostDeploymentConfig memory config
+    )
+  {
+    PostDeploymentConfig memory config;
+    
+    config.poolAddressesProvider = 0x5D9C960C804FD258CEd466cAcf6bBC5Ff7cb9381;
+    
+    return config;
+  }
 }

@@ -128,6 +128,10 @@ struct MarketConfig {
   uint16 treasurySplitPercent; // ignored if treasuryPartner is empty, otherwise the split percent for the first treasury (recipientA, values between 00_01 and 100_00)
 }
 
+struct PostDeploymentConfig {
+  address poolAddressesProvider;
+}
+
 struct DeployFlags {
   bool l2;
 }
