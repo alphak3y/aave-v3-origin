@@ -26,6 +26,7 @@ contract AaveV3GettersProcedureTwo {
       report.wrappedTokenGateway = address(
         new WrappedTokenGatewayV3(wrappedNativeToken, poolAdmin, IPool(poolProxy))
       );
+      console.log('after wrapped token gateway deploy');
     }
     if (l2Flag) {
       report.l2Encoder = address(new L2Encoder(IPool(poolProxy)));
