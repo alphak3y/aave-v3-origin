@@ -1,7 +1,16 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-contract DeployWrappedNativeToken {
+import {Script} from 'forge-std/Script.sol';
+import 'forge-std/StdJson.sol';
+import 'forge-std/console.sol';
+
+import 'src/deployments/interfaces/IMarketReportTypes.sol';
+import {DeployUtils} from 'src/deployments/contracts/utilities/DeployUtils.sol';
+import {WETH9} from 'src/contracts/dependencies/weth/WETH9.sol';
+import {MockAggregator} from 'src/contracts/mocks/oracle/CLAggregators/MockAggregator.sol';
+
+contract Default is DeployUtils, Script {
   using stdJson for string;
 
   function run() external {
