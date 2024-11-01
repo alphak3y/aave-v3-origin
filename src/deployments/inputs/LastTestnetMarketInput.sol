@@ -29,10 +29,10 @@ contract LastTestnetMarketInput is MarketInput {
     config.flashLoanPremiumTotal = 0.0005e4;
     config.flashLoanPremiumToProtocol = 0.0004e4;
 
-    config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(1800e8));
-    config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
+    config.networkBaseTokenPriceInUsdProxyAggregator = 0xe601e1da33d3ae495244671605eE521fEfbe46a1;
+    config.marketReferenceCurrencyPriceInUsdProxyAggregator = 0xCD4634e86b39a7378413025229A6faae4b096057;
 
-    config.wrappedNativeToken = address(new WETH9());
+    config.wrappedNativeToken = 0x76279060dA38EDbF86f1Dc35ee1fD6B1aE8a13F0;
 
     console.log('wrapped native token', config.wrappedNativeToken);
 

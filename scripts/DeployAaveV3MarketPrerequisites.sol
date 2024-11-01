@@ -29,7 +29,7 @@ contract Default is DeployUtils, Script {
 
     vm.stopBroadcast();
 
-    console.log('MARKET CONFIG:');
+    console.log('\nMARKET CONFIG:');
     console.log('--------------\n');
     console.log('WETH9:', config.wrappedNativeToken);
     console.log('WETH Mock Oracle:', config.networkBaseTokenPriceInUsdProxyAggregator);
