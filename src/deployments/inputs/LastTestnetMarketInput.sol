@@ -4,6 +4,8 @@ import './MarketInput.sol';
 import {WETH9} from 'src/contracts/dependencies/weth/WETH9.sol';
 import {MockAggregator} from 'src/contracts/mocks/oracle/CLAggregators/MockAggregator.sol';
 
+import 'forge-std/console.sol';
+
 contract LastTestnetMarketInput is MarketInput {
   function _getMarketInput(
     address deployer
@@ -31,6 +33,8 @@ contract LastTestnetMarketInput is MarketInput {
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
 
     config.wrappedNativeToken = address(new WETH9());
+
+    console.log('wrapped native token', config.wrappedNativeToken);
 
     config.salt = keccak256(abi.encodePacked('cubish'));
 
