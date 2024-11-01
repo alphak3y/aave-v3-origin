@@ -18,6 +18,7 @@ contract Default is DeployUtils, Script {
 
     console.log('Aave V3 Wrapped Native Token Deployment');
     console.log('sender', msg.sender);
+    console.log('chainid', block.chainid);
 
     config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(1800e8));
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
