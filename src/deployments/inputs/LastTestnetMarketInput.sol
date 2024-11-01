@@ -51,7 +51,7 @@ contract LastTestnetMarketInput is MarketInput {
   {
     PostDeploymentConfig memory config;
     
-    config.poolAddressesProvider = 0x5D9C960C804FD258CEd466cAcf6bBC5Ff7cb9381;
+    config.poolAddressesProvider = 0x270542372e5a73c39E4290291AB88e2901cCEF2D;
     
     return config;
   }
