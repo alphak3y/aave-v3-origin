@@ -20,10 +20,14 @@ contract Default is DeployUtils, Script {
     console.log('sender', msg.sender);
     console.log('chainid', block.chainid);
 
+    vm.startBroadcast(vm.envUint('PRIVATE_KEY'));
+
     config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(1800e8));
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
 
     config.wrappedNativeToken = address(new WETH9());
+
+    vm.stopBroadcast();
 
     console.log('MARKET CONFIG:');
     console.log('--------------\n');
