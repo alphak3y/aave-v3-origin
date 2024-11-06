@@ -5,7 +5,7 @@ import {Script} from 'forge-std/Script.sol';
 import 'forge-std/StdJson.sol';
 import 'forge-std/console.sol';
 
-import {DeployUtils} from '../../src/deployments/contracts/utilities/DeployUtils.sol';
+import {DeployUtils} from 'src/deployments/contracts/utilities/DeployUtils.sol';
 import {LastTestnetReservesConfig} from 'src/deployments/configs/LastTestnetReservesConfig.sol';
 
 contract Default is DeployUtils, LastTestnetReservesConfig, Script {
