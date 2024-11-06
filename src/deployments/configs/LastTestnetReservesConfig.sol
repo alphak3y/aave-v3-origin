@@ -33,7 +33,7 @@ contract LastTestnetReservesConfig {
     return (tokens, oracles);
   }
 
-  function _setReserveConfigs(
+  function _initReserves(
     address[] memory tokens
   ) 
     internal
@@ -97,8 +97,13 @@ contract LastTestnetReservesConfig {
     
     // set reserves configs
     _getPoolConfigurator().initReserves(inputs);
+  }
 
-    // enable borrowing
+  function _enableBorrowing(
+    address[] memory tokens
+  )
+    internal
+  {
     _getPoolConfigurator().setReserveBorrowing(tokens[0], true);
     _getPoolConfigurator().setReserveBorrowing(tokens[1], true);
     _getPoolConfigurator().setReserveBorrowing(tokens[2], true);
