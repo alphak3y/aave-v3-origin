@@ -9,7 +9,7 @@ import '../../src/deployments/interfaces/IMarketReportTypes.sol';
 import {DeployUtils} from '../../src/deployments/contracts/utilities/DeployUtils.sol';
 import {LastTestnetReservesConfig} from 'src/deployments/configs/LastTestnetReservesConfig.sol';
 
-contract ConfigureAaveV3ReservesLastTestnet is DeployUtils, LastTestnetReservesConfig, Script {
+contract Default is DeployUtils, LastTestnetReservesConfig, Script {
   using stdJson for string;
 
   function run() external {
