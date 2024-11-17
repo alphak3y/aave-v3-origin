@@ -23,11 +23,15 @@ contract Default is DeployUtils, LastTestnetReservesConfig, Script {
     // deploy tokens and oracles
     (tokens, oracles) = _deployTestnetTokens(msg.sender);
 
+    // tokens = _fetchTestnetTokens(msg.sender);
+
     // set oracles
     _getAaveOracle().setAssetSources(tokens, oracles);
 
     // set reserve config
     _initReserves(tokens);
+
+    _enableCollateral(tokens);
     
     // enable borrowing
     _enableBorrowing(tokens);

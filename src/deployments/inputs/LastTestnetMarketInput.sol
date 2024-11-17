@@ -32,7 +32,7 @@ contract LastTestnetMarketInput is MarketInput {
     config.networkBaseTokenPriceInUsdProxyAggregator = 0xC5b8E1Ecef17a08eB5d09d331671a3DE14212D27;
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = 0x32375ea79aB576D473f2E4A26D907246baC4Cf80;
 
-    config.wrappedNativeToken = 0xe69733aE7CA4bee8ffd5CCb9c78439Ba09fed4B3;
+    config.wrappedNativeToken = 0x1A86bA62361DDCc680b2B230c7b3CcF5D777ed7E;
 
     console.log('wrapped native token', config.wrappedNativeToken);
 
