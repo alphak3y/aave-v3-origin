@@ -17,7 +17,7 @@ abstract contract VersionedInitializable {
   /**
    * @dev Indicates that the contract has been initialized.
    */
-  uint256 private lastInitializedRevision = 0;
+  uint256 internal lastInitializedRevision = 0;
 
   /**
    * @dev Indicates that the contract is in the process of being initialized.
