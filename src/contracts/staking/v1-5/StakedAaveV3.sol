@@ -30,16 +30,16 @@ contract StakedAaveV3 is StakedTokenV3, IStakedAaveV3 {
   }
 
   constructor(
-    IERC20 stakedToken,
-    IERC20 rewardToken,
+    address stakedToken,
+    address rewardToken,
     uint256 unstakeWindow,
     address rewardsVault,
     address emissionManager,
     uint128 distributionDuration
   )
     StakedTokenV3(
-      stakedToken,
-      rewardToken,
+      IERC20(stakedToken),
+      IERC20(rewardToken),
       unstakeWindow,
       rewardsVault,
       emissionManager,
