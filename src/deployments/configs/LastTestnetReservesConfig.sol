@@ -13,6 +13,9 @@ import {MarketReport} from 'src/deployments/interfaces/IMarketReportTypes.sol';
 import 'forge-std/console.sol';
 
 contract LastTestnetReservesConfig {
+
+  AaveV3SetupBatch public constant MARKET_REPORT = AaveV3SetupBatch(0x7645fb289dEa802832C05a0EA6DBd0505D69597D);
+  
   function _deployTestnetTokens(
     address deployer
   )
@@ -86,7 +89,7 @@ contract LastTestnetReservesConfig {
 
     IDefaultInterestRateStrategyV2.InterestRateData memory rateData = IDefaultInterestRateStrategyV2.InterestRateData({
       optimalUsageRatio: uint16(80_00),
-      baseVariableBorrowRate: uint32(1_00),
+      baseVariableBorrowRate: uint32(1_50),
       variableRateSlope1: uint32(4_00),
       variableRateSlope2: uint32(60_00)
     });
@@ -94,21 +97,21 @@ contract LastTestnetReservesConfig {
     //IMarketReport
     MarketReport memory marketReport = AaveV3SetupBatch(marketReport).getMarketReport();
 
-    // inputs[0] = ConfiguratorInputTypes.InitReserveInput({
-    //   aTokenImpl: address(marketReport.), // Address of the aToken implementation
-    //   variableDebtTokenImpl: address(0x49526edA124F2295BBF0f02817D1bB27E1C6F23E ), // Address of the variable debt token implementation
-    //   useVirtualBalance: false, // TODO is this important? not mentioned in code or spark interface
-    //   interestRateStrategyAddress: address(0xDeaeA8D8769a14092d381Ac44D9cfB5638D68478), // Address of the interest rate strategy
-    //   underlyingAsset: address(tokens[0]), // WETH address on Ethereum mainnet
-    //   treasury: address(0xa2CCdD20525d5225b4AB08c10D1aFfb6de84D518), // Address of the treasury
-    //   incentivesController: address(0x21455b64CD8f992B2500a55243d2C179a77C83A1), // Address of the incentives controller
-    //   aTokenName: 'testWETH Aave',
-    //   aTokenSymbol: 'awtestWETH',
-    //   variableDebtTokenName: 'Test WETH Variable Debt Aave',
-    //   variableDebtTokenSymbol: 'variableDebtTestWETH',
-    //   params: bytes(''), // Additional parameters for initialization
-    //   interestRateData: abi.encode(rateData)
-    // });
+    inputs[0] = ConfiguratorInputTypes.InitReserveInput({
+      aTokenImpl: address(0xEcfc9497777345BEda45506deA064c2e17B06B8c), // Address of the aToken implementation
+      variableDebtTokenImpl: address(0x49526edA124F2295BBF0f02817D1bB27E1C6F23E ), // Address of the variable debt token implementation
+      useVirtualBalance: false, // TODO is this important? not mentioned in code or spark interface
+      interestRateStrategyAddress: address(0xDeaeA8D8769a14092d381Ac44D9cfB5638D68478), // Address of the interest rate strategy
+      underlyingAsset: address(tokens[0]), // WETH address on Ethereum mainnet
+      treasury: address(0xa2CCdD20525d5225b4AB08c10D1aFfb6de84D518), // Address of the treasury
+      incentivesController: address(0x21455b64CD8f992B2500a55243d2C179a77C83A1), // Address of the incentives controller
+      aTokenName: 'testWETH Aave',
+      aTokenSymbol: 'awtestWETH',
+      variableDebtTokenName: 'Test WETH Variable Debt Aave',
+      variableDebtTokenSymbol: 'variableDebtTestWETH',
+      params: bytes(''), // Additional parameters for initialization
+      interestRateData: abi.encode(rateData)
+    });
 
     // inputs[1] = ConfiguratorInputTypes.InitReserveInput({
     //   aTokenImpl: address(0xEcfc9497777345BEda45506deA064c2e17B06B8c), // Address of the aToken implementation
@@ -143,7 +146,7 @@ contract LastTestnetReservesConfig {
     // });
     
     // set reserves configs
-    // _getPoolConfigurator().initReserves(inputs);
+    _getPoolConfigurator().initReserves(inputs);
   }
 
   function _enableCollateral(

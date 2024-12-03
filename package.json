@@ -4,9 +4,9 @@
   "scripts": {
     "lint": "prettier .",
     "lint:fix": "bun run lint -- --write",
-    "deploy:lastSepolia:pre": "",
+    "deploy:lastSepolia:pre": "forge script scripts/DeployAaveV3MarketPrerequisites.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv",
     "deploy:lastSepolia:main": "forge script scripts/DeployAaveV3MarketBatchedLastTestnet.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv",
-    "deploy:lastSepolia:post": "forge script scripts/DeployAaveV3MarketPostrequisites.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5forge script scripts/DeployAaveV3MarketPrerequisites.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv.t.conduit.xyz/api/' -vvvv",
+    "deploy:lastSepolia:post": "forge script scripts/DeployAaveV3MarketPostrequisites.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv",
     "deploy:lastSepolia:configure": "forge script scripts/ConfigureAaveV3ReservesLastTestnet.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv",
     "deploy:lastSepolia:faucet": "forge script scripts/FaucetTokensLastTestnet.sol:Default --rpc-url https://rpc-devnet-a62hx4f2t5.t.conduit.xyz --broadcast --verify --verifier blockscout --verifier-url 'https://explorer-devnet-a62hx4f2t5.t.conduit.xyz/api/' -vvvv"
   },
