@@ -21,20 +21,20 @@ contract Default is DeployUtils, LastTestnetReservesConfig, Script {
     vm.startBroadcast(vm.envUint('PRIVATE_KEY'));
     
     // deploy tokens and oracles
-    (tokens, oracles) = _deployTestnetTokens(msg.sender);
+    // (tokens, oracles) = _deployTestnetTokens(msg.sender);
 
     // tokens = _fetchTestnetTokens(msg.sender);
 
     // set oracles
-    _getAaveOracle().setAssetSources(tokens, oracles);
+    // _getAaveOracle().setAssetSources(tokens, oracles);
 
     // set reserve config
-    _initReserves(tokens, 0x7645fb289dEa802832C05a0EA6DBd0505D69597D);
+    _initReserves(tokens, 0x114e4d85Db6E7082CC4366b849648ABE288b77eC);
 
-    _enableCollateral(tokens);
+    // _enableCollateral(tokens);
     
     // // enable borrowing
-    _enableBorrowing(tokens);
+    // _enableBorrowing(tokens);
 
     vm.stopBroadcast();
   }

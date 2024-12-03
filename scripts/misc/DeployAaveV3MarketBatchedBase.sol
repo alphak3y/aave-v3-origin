@@ -32,10 +32,10 @@ abstract contract DeployAaveV3MarketBatchedBase is DeployUtils, MarketInput, Scr
     vm.stopBroadcast();
 
     // Write market deployment JSON report at /reports
-    IMetadataReporter metadataReporter = IMetadataReporter(
-      _deployFromArtifacts('MetadataReporter.sol:MetadataReporter')
-    );
-    metadataReporter.writeJsonReportMarket(report);
+    // IMetadataReporter metadataReporter = IMetadataReporter(
+    //   _deployFromArtifacts('MetadataReporter.sol:MetadataReporter')
+    // );
+    // metadataReporter.writeJsonReportMarket(report);
   }
 
   function _loadWarnings(MarketConfig memory config, DeployFlags memory flags) internal pure {

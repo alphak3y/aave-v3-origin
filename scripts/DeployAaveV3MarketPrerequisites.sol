@@ -22,10 +22,12 @@ contract Default is DeployUtils, Script {
 
     vm.startBroadcast(vm.envUint('PRIVATE_KEY'));
 
-    config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(1800e8));
+    config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(4000e8));
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
 
     config.wrappedNativeToken = address(new WETH9());
+
+    //TODO: check if SafeSingletonDeployer exists; if not deploy it
 
     vm.stopBroadcast();
 

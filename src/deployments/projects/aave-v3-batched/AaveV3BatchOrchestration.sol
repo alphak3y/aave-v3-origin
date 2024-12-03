@@ -179,7 +179,7 @@ library AaveV3BatchOrchestration {
     if (peripheryReport.revenueSplitter != address(0)) {
       treasury = peripheryReport.revenueSplitter;
     }
-
+    console.log('helpers batch one');
     AaveV3HelpersBatchOne helpersBatchOne = new AaveV3HelpersBatchOne(
       setupReport.poolProxy,
       setupReport.poolConfiguratorProxy,

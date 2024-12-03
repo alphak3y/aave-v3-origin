@@ -15,7 +15,7 @@ contract AaveV3LibrariesBatch2 is LibraryReportStorage {
   }
 
   function _deployAaveV3Libraries() internal returns (LibrariesReport memory libReport) {
-    bytes32 salt = keccak256('AAVE_V3_LIBRARIES_BATCH');
+    bytes32 salt = keccak256('AAVE_V3_LIBRARIES_BATCH_V1');
 
     libReport.flashLoanLogic = Create2Utils._create2Deploy(salt, type(FlashLoanLogic).creationCode);
     libReport.liquidationLogic = Create2Utils._create2Deploy(

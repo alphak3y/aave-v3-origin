@@ -8,6 +8,8 @@ import {IPool} from '../../../contracts/interfaces/IPool.sol';
 import {IPoolConfigurator} from '../../../contracts/interfaces/IPoolConfigurator.sol';
 import {IAaveOracle} from '../../../contracts/interfaces/IAaveOracle.sol';
 
+import 'forge-std/console.sol';
+
 contract AaveV3HelpersProcedureOne {
   function _deployConfigEngine(
     address pool,
@@ -19,17 +21,18 @@ contract AaveV3HelpersProcedureOne {
     address aTokenImpl,
     address vTokenImpl
   ) internal returns (ConfigEngineReport memory configEngineReport) {
+    console.log('deploy libraries 1');
     IAaveV3ConfigEngine.EngineLibraries memory engineLibraries = IAaveV3ConfigEngine
       .EngineLibraries({
-        listingEngine: Create2Utils._create2Deploy('v1', type(ListingEngine).creationCode),
-        eModeEngine: Create2Utils._create2Deploy('v1', type(EModeEngine).creationCode),
-        borrowEngine: Create2Utils._create2Deploy('v1', type(BorrowEngine).creationCode),
-        collateralEngine: Create2Utils._create2Deploy('v1', type(CollateralEngine).creationCode),
-        priceFeedEngine: Create2Utils._create2Deploy('v1', type(PriceFeedEngine).creationCode),
-        rateEngine: Create2Utils._create2Deploy('v1', type(RateEngine).creationCode),
-        capsEngine: Create2Utils._create2Deploy('v1', type(CapsEngine).creationCode)
+        listingEngine: Create2Utils._create2Deploy('v1.0', type(ListingEngine).creationCode),
+        eModeEngine: Create2Utils._create2Deploy('v1.0', type(EModeEngine).creationCode),
+        borrowEngine: Create2Utils._create2Deploy('v1.0', type(BorrowEngine).creationCode),
+        collateralEngine: Create2Utils._create2Deploy('v1.0', type(CollateralEngine).creationCode),
+        priceFeedEngine: Create2Utils._create2Deploy('v1.0', type(PriceFeedEngine).creationCode),
+        rateEngine: Create2Utils._create2Deploy('v1.0', type(RateEngine).creationCode),
+        capsEngine: Create2Utils._create2Deploy('v1.0', type(CapsEngine).creationCode)
       });
-
+    console.log('deploy libraries 2');
     IAaveV3ConfigEngine.EngineConstants memory engineConstants = IAaveV3ConfigEngine
       .EngineConstants({
         pool: IPool(pool),
@@ -47,7 +50,7 @@ contract AaveV3HelpersProcedureOne {
     configEngineReport.priceFeedEngine = engineLibraries.priceFeedEngine;
     configEngineReport.rateEngine = engineLibraries.rateEngine;
     configEngineReport.capsEngine = engineLibraries.capsEngine;
-
+    console.log('deploy libraries 3');
     configEngineReport.configEngine = address(
       new AaveV3ConfigEngine(aTokenImpl, vTokenImpl, engineConstants, engineLibraries)
     );
