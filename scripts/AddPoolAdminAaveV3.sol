@@ -8,6 +8,8 @@ import 'forge-std/console.sol';
 import {DeployUtils} from 'src/deployments/contracts/utilities/DeployUtils.sol';
 import {HyperTestnetReservesConfig} from 'src/deployments/configs/HyperTestnetReservesConfig.sol';
 
+import {UiPoolDataProviderV3,IPoolAddressesProvider} from 'src/contracts/helpers/UiPoolDataProviderV3.sol';
+
 contract Default is DeployUtils, HyperTestnetReservesConfig, Script {
   using stdJson for string;
 
@@ -15,27 +17,14 @@ contract Default is DeployUtils, HyperTestnetReservesConfig, Script {
     address[] memory tokens;
     address[] memory oracles;
 
-    console.log('Aave V3 Last Testnet Reserve Config');
+    console.log('Aave V3 Hyper Testnet Add Pool Admin');
     console.log('sender', msg.sender);
 
     vm.startBroadcast(vm.envUint('PRIVATE_KEY'));
     
-    // deploy tokens and oracles
-    (tokens, oracles) = _deployTestnetTokens(msg.sender);
-
-    // tokens = _fetchTestnetTokens(msg.sender);
-
-    // set oracles
-    _getAaveOracle().setAssetSources(tokens, oracles);
-
-    // set reserve config
-    _initReserves(tokens);
-
-    _enableCollateral(tokens);
+    // _addPoolAdmin(0x9FFd576173784375183100B17CCCAbC6C1150dC0);
+    UiPoolDataProviderV3(0x108D9de78e1cC851531813A38ec0520d6A900198).getReservesData(IPoolAddressesProvider(0x7d01f1BA6fAcF734649e9589670DB16F9172Be2C));
     
-    // enable borrowing
-    _enableBorrowing(tokens);
-
     vm.stopBroadcast();
   }
 }

@@ -23,16 +23,16 @@ contract HyperTestnetMarketInput is MarketInput {
     roles.emergencyAdmin = deployer;
     roles.poolAdmin = deployer;
 
-    config.marketId = 'Aave V3 Hyper Testnet Market';
+    config.marketId = 'Hypurr.fi Testnet Market';
     config.providerId = 8080;
     config.oracleDecimals = 8;
     config.flashLoanPremiumTotal = 0.0005e4;
     config.flashLoanPremiumToProtocol = 0.0004e4;
 
-    config.networkBaseTokenPriceInUsdProxyAggregator = 0xB63E7eF70Ebdf52138Ec7A34f0C18019B51E7Ab6;
-    config.marketReferenceCurrencyPriceInUsdProxyAggregator = 0x364A07Cb81Cb744C2b1AfC624061B5308cD93699;
+    config.networkBaseTokenPriceInUsdProxyAggregator = 0xCEdB7DF30332f003E177f732a4a04019e1909e85;
+    config.marketReferenceCurrencyPriceInUsdProxyAggregator = 0x3399453a0353E788dBEb7c892Add2aa913Cf4416;
 
-    config.wrappedNativeToken = 0x1B42442F2bDd70d581D0689342E315e699d36768;
+    config.wrappedNativeToken = 0x8bf86549d308e50Db889cF843AEBd6b7B0d7BB9a;
 
     console.log('wrapped native token', config.wrappedNativeToken);
 

@@ -7,7 +7,7 @@ import 'forge-std/console.sol';
 
 import 'src/deployments/interfaces/IMarketReportTypes.sol';
 import {DeployUtils} from 'src/deployments/contracts/utilities/DeployUtils.sol';
-import {WETH9} from 'src/contracts/dependencies/weth/WETH9.sol';
+import {WHYPE} from 'src/contracts/dependencies/weth/WHYPE.sol';
 import {MockAggregator} from 'src/contracts/mocks/oracle/CLAggregators/MockAggregator.sol';
 
 contract Default is DeployUtils, Script {
@@ -22,10 +22,10 @@ contract Default is DeployUtils, Script {
 
     vm.startBroadcast(vm.envUint('PRIVATE_KEY'));
 
-    config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(4000e8));
+    config.networkBaseTokenPriceInUsdProxyAggregator = address(new MockAggregator(10e8));
     config.marketReferenceCurrencyPriceInUsdProxyAggregator = address(new MockAggregator(1e8));
 
-    config.wrappedNativeToken = address(new WETH9());
+    config.wrappedNativeToken = address(new WHYPE());
 
     //TODO: check if SafeSingletonDeployer exists; if not deploy it
 
