@@ -78,7 +78,8 @@ contract HyperTestnetReservesConfig is HyperTestnetMarketInput {
     tokens  = new address[](1);
 
     // tokens[0] = address(0x4B85aCF84b2593D67f6593D18504dBb3A337D3D8); // SolvBTC
-    tokens[0] = address(0x8bf86549d308e50Db889cF843AEBd6b7B0d7BB9a); // WHYPE
+    // tokens[0] = address(0x8bf86549d308e50Db889cF843AEBd6b7B0d7BB9a); // WHYPE
+    tokens[0] = address(0xe2FbC9cB335A65201FcDE55323aE0F4E8A96A616); // stHYPE (stTESTH on testnet)
     // tokens[2] = address(0x6fDbAF3102eFC67ceE53EeFA4197BE36c8E1A094); // USDC
     // tokens[3] = address(0x2222C34A8dd4Ea29743bf8eC4fF165E059839782); // sUSDe
 
@@ -95,8 +96,10 @@ contract HyperTestnetReservesConfig is HyperTestnetMarketInput {
   { 
     oracles  = new address[](1);
 
+    oracles[0] = address(0xC3346631E0A9720582fB9CAbdBEA22BC2F57741b); // stHYPE (stTESTH on testnet); using redstone HYPE oracle on testnet
+
     // oracles[0] = address(0x85C4F855Bc0609D2584405819EdAEa3aDAbfE97D); // SolvBTC
-    oracles[0] = address(0xC3346631E0A9720582fB9CAbdBEA22BC2F57741b); // WHYPE
+    // oracles[0] = address(0xC3346631E0A9720582fB9CAbdBEA22BC2F57741b); // WHYPE
     // oracles[2] = address(0xa0f2EF6ceC437a4e5F6127d6C51E1B0d3A746911); // USDC
     // oracles[3] = address(0xa0f2EF6ceC437a4e5F6127d6C51E1B0d3A746911); // sUSDe
 
@@ -127,6 +130,22 @@ contract HyperTestnetReservesConfig is HyperTestnetMarketInput {
 
   }
 
+  function _updateDebtToken(
+    ConfiguratorInputTypes.UpdateDebtTokenInput memory input
+  )
+    internal
+  {
+    _getPoolConfigurator().updateVariableDebtToken(input);
+  }
+
+  function _updateAToken(
+    ConfiguratorInputTypes.UpdateATokenInput memory input
+  )
+    internal
+  {
+    _getPoolConfigurator().updateAToken(input);
+  }
+
   function _initReserves(
     address[] memory tokens
   ) 
@@ -152,10 +171,10 @@ contract HyperTestnetReservesConfig is HyperTestnetMarketInput {
       underlyingAsset: tokens[0], // WETH address on Ethereum mainnet
       treasury: marketReport.treasury, // Address of the treasury
       incentivesController: marketReport.rewardsControllerProxy, // Address of the incentives controller
-      aTokenName: 'SolvBTC Hypurr',
-      aTokenSymbol: 'hwSolvBTC',
-      variableDebtTokenName: 'SolvBTC Variable Debt Hypurr',
-      variableDebtTokenSymbol: 'variableDebtSolvBTC',
+      aTokenName: 'stTESTH Hypurr',
+      aTokenSymbol: 'hwStTESTH',
+      variableDebtTokenName: 'stTESTH Variable Debt Hypurr',
+      variableDebtTokenSymbol: 'variableDebtStTESTH',
       params: bytes(''), // Additional parameters for initialization
       interestRateData: abi.encode(rateData)
     });

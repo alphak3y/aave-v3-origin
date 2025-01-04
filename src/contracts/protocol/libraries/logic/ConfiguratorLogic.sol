@@ -151,7 +151,7 @@ library ConfiguratorLogic {
    * @param cachedPool The Pool containing the reserve with the variable debt token
    * @param input The parameters needed for the initialize call
    */
-  function executeUpdateVariableDebtToken(
+    function executeUpdateVariableDebtToken(
     IPool cachedPool,
     ConfiguratorInputTypes.UpdateDebtTokenInput calldata input
   ) external {
